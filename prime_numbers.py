@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # Copyright 2009-2017 BHG http://bw.org/
 
+# Write a Python function to find prime factorization of a given number.
+# Input: Integer / Output: List of prime factors
+# E.x get_prime_factors(630) -> [2, 3, 3, 5, 7]
+
 def get_whole_number_scope(number):
     
     if((not isinstance(number,int)) | number==1):
