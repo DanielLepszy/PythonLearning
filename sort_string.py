@@ -2,6 +2,8 @@
 # Input: string of words, separated by spaces
 # Output: string of words sorted alphabetically
 # Do not ignore upper case with lower case
+
+ # #  1)
 import re
 def sort_words(text):
     
@@ -23,6 +25,19 @@ def sort_words(text):
     print('OUTPUT : sorted string list is  {0}'.format( upper_text_sorted))
 
 
-# # # # # # #
+# # 2)
+def sort_string(input_string):
+    
+    words = input_string.split(' ')
+    words = [w.lower() + w for w in words]
+    words.sort()
+    words= [w[len(w)//2:] for w in words]
+   
 
+    print('\nINPUT : {0}'.format(input_string))
+    print('OUTPUT : sorted string list is  {0}'.format(words))
+
+
+# # # # # # # 
 sort_words('ananas ORANGE apple orange ora')
+sort_string('ananas ORANGE apple orange ora')
