@@ -5,7 +5,7 @@
 # Ignore case (for example. 'A'=='a') and symbols. Only alphanumeric equals
 
 
-def ifPalindrome(example):
+def if_Palindrome(example):
     
    if((not isinstance(example,str))):
        raise TypeError
@@ -30,4 +30,4 @@ def ifPalindrome(example):
        return False
    
    
-print(ifPalindrome('Co mi dał duch – cud, ład i moc.'))   
+print(if_Palindrome('Co mi dał duch – cud, ład i moc.'))   
