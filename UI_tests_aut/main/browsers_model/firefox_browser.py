@@ -1,4 +1,4 @@
-from UI_tests_aut.browsers_model.browsers import Browsers
+from UI_tests_aut.main.browsers_model.browsers import Browsers
 
 
 class Firefox(Browsers):

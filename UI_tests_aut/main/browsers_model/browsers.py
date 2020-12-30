@@ -12,12 +12,11 @@ class Browsers:
 
     def set_driver(self, browser_type):
         if browser_type == 'firefox':
-            self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+            self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), log_path='../main/browsers_model/driver_log/gecko_driver.log')
         elif browser_type == 'chrome':
-            self.driver = webdriver.Chrome(executable_path=ChromeDriverManager.install())
+            self.driver = webdriver.Chrome(executable_path=ChromeDriverManager.install(), log_path='../main/browsers_model/driver_log/chrome_driver.log')
         else:
             raise Exception(f'Wrong browser_type:{browser_type}')
 
 
-    # def open_browser(self, url):
 
