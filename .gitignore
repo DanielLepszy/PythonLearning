@@ -2,3 +2,4 @@
 /UI_tests_aut/.pytest_cache
 *.log
 .idea
+*.pytest_cache
