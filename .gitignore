@@ -1,3 +1,4 @@
 ./automation_testing/tasks/CH01/01_02/geckodriver.log
 /UI_tests_aut/.pytest_cache
 *.log
+.idea
