@@ -1,20 +1,15 @@
 import pytest
 from UI_tests_aut.main.properties.read_properties import Properties_Reader
-from browsers_model.browsers import Browsers
+from test.test_case_base import Test_Case_Base
 
 
 @pytest.mark.order(1)
-class TestClass:
+class TestClass(Test_Case_Base):
 
     def setup_class(self):
-        Browsers(Properties_Reader().load_properties_from_file('browser_type').data)
-        self.driver = Browsers.get_driver()
+        self.driver = Test_Case_Base.set_driver()
         self.url = Properties_Reader().load_properties_from_file('url').data
 
-    def test_open(self):
+    def test_open(self, get_url):
         self.driver.get(self.url)
-        assert self.driver.current_url == self.url
-
-    #
-    # def teardown_class(self):
-    #     self.driver.close()
+        assert self.driver.current_url == 'https://www.saucedemo.com/'
