@@ -1,14 +1,13 @@
 import pytest
 
-from test.test_case_base import Test_Case_Base
-from wait_factory.explicit_wait_factory import Wait_Factory
+from test.base.test_case_base import TestCaseBase
 
 
 @pytest.mark.order(3)
-class Test_Login_With_No_Credential(Test_Case_Base):
+class Test_Login_With_No_Credential(TestCaseBase):
 
     def setup_class(self):
-        self.driver = Test_Case_Base.get_driver()
+        self.driver = TestCaseBase.get_driver()
 
     @pytest.fixture()
     def prepare_elements(self):

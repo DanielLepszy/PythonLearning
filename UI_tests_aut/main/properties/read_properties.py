@@ -1,6 +1,6 @@
 from jproperties import Properties
 
-class Properties_Reader():
+class PropertiesReader():
 
     def load_properties_from_file(self, property):
         configs = Properties()

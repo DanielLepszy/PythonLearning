@@ -1,13 +1,13 @@
 import pytest
 
-from test.test_case_base import Test_Case_Base
+from test.base.test_case_base import TestCaseBase
 
 
 @pytest.mark.order(2)
-class Test_Empty_Inputs_Validations(Test_Case_Base):
+class Test_Empty_Inputs_Validations(TestCaseBase):
 
     def setup_class(self):
-        self.driver = Test_Case_Base.get_driver()
+        self.driver = TestCaseBase.get_driver()
 
     @pytest.fixture()
     def prepare_elements(self):
