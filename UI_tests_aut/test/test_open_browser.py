@@ -10,6 +10,7 @@ class TestClass(Test_Case_Base):
         self.driver = Test_Case_Base.set_driver()
         self.url = Properties_Reader().load_properties_from_file('url').data
 
-    def test_open(self, get_url):
+    def test_open(self):
+        # self.driver.implicitly_wait(3)
         self.driver.get(self.url)
         assert self.driver.current_url == 'https://www.saucedemo.com/'
