@@ -1,4 +1,4 @@
-from page_models.login_page import LoginPageModel
+from page_models import LoginPageModel
 
 
 class PageModelsFactory:

@@ -2,7 +2,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 
 from browsers_model.browsers import Browsers
 from properties.read_properties import PropertiesReader
-from page_models.page_models_factory.page_models_factory import PageModelsFactory
+from page_models import PageModelsFactory
 
 
 class TestCaseBase:

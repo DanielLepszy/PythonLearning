@@ -1,7 +1,5 @@
 import pytest
-from seleniumpagefactory import PageFactory
 
-from page_models.login_page import LoginPageModel
 from test.base.test_case_base import TestCaseBase
 
 
