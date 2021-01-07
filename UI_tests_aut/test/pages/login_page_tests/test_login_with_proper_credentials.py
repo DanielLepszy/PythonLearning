@@ -2,7 +2,6 @@ import pytest
 from properties.read_properties import PropertiesReader
 from test.base.test_case_base import TestCaseBase
 
-
 @pytest.mark.order(4)
 class TestLoginToAccount(TestCaseBase):
 

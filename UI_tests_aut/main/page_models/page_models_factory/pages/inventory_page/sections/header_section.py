@@ -9,7 +9,7 @@ class HeaderSection(PageFactory):
         self.driver = driver
 
 
-locators = {
-    "username_input": ('ID', 'user-name'),
+    locators = {
+        "username_input": ('ID', 'user-name'),
 
-}
+    }

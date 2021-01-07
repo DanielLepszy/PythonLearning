@@ -9,7 +9,8 @@ class InventorySection(PageFactory):
         self.driver = driver
 
 
-locators = {
-    "label": ('CSS', '#inventory_filter_container .product_label'),
+    locators = {
+        # "label": ('CSS', '#inventory_filter_container .product_label'),
+        "label": ('ID', 'inventory_container'),
 
-}
+    }

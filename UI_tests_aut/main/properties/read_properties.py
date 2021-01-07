@@ -20,3 +20,8 @@ class PropertiesReader:
         if prop is None: raise Exception
 
         return prop
+
+    @classmethod
+    def if_save_running_time(cls):
+        time_save = cls.get_value('saveTimeTestRunning').data
+        return bool(time_save)
