@@ -7,7 +7,7 @@ from test.base.test_case_base import TestCaseBase
 class TestClass(TestCaseBase):
 
     def setup_class(self):
-        self.driver = TestCaseBase.set_driver()
+        self.driver = TestCaseBase.get_driver()
         self.url = PropertiesReader().load_properties_from_file('url').data
 
     def test_open(self):

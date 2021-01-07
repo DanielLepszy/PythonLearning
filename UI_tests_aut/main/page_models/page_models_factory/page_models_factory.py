@@ -8,7 +8,7 @@ class PageModelsFactory:
 
     LOGIN_PAGE = None
 
-    def get_login_page(self):
+    def get_login_page(self) -> LoginPageModel:
         if self.LOGIN_PAGE is None:
             self.LOGIN_PAGE = LoginPageModel(self.driver)
         return self.LOGIN_PAGE

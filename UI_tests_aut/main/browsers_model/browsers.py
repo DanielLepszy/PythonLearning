@@ -16,8 +16,7 @@ class Browsers(Firefox, Chrome):
         if self.driver is not None:
             return self.driver
 
-
-    def set_driver(self,browser_type):
+    def set_driver(self, browser_type) -> webdriver:
         if browser_type == Firefox().get_browser_type():
             return webdriver.Firefox(executable_path=GeckoDriverManager().install())
             # , log_path='../main/browsers_model/driver_log/gecko_driver.log')
