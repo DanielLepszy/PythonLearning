@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 
 
 class WaitFactory:
-
     driver = None
     time = 5
 
@@ -36,6 +35,12 @@ class WaitFactory:
     def wait_until_visibility_of_all_elements(driver, locator):
         WebDriverWait(driver, WaitFactory.time).until(
             EC.visibility_of_all_elements_located((By.XPATH, locator))
+        )
+
+    @staticmethod
+    def wait_until_visibility_of_element(driver, element):
+        WebDriverWait(driver, WaitFactory.time).until(
+            EC.visibility_of(element)
         )
 
     @staticmethod

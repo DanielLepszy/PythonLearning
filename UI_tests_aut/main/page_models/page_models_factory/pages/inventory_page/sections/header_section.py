@@ -2,7 +2,7 @@ from seleniumpagefactory import PageFactory
 from selenium import webdriver
 
 
-class FooterSection(PageFactory):
+class HeaderSection(PageFactory):
 
     def __init__(self, driver):
         super().__init__()
