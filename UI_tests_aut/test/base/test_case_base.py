@@ -1,4 +1,5 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 
 from browsers_model.browsers import Browsers
 from page_models.page_models_factory.page_models_factory import PageModelsFactory
@@ -7,7 +8,7 @@ from properties.read_properties import PropertiesReader
 
 
 class TestCaseBase:
-    DRIVER = None
+    DRIVER:WebDriver = None
     PAGES = None
 
     @classmethod
