@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from seleniumpagefactory import PageFactory
 from selenium import webdriver
 
@@ -12,12 +13,12 @@ class HeaderSection(PageFactory):
 
     locators = {
         "shopping_trolley_icon": ('CSS', '#shopping_cart_container .fa-fw'),
+        "app_logo": ('CSS', '.app_logo'),
+        "product_label": ('CSS', '#inventory_filter_container .product_label'),
         "menu_burger_button": ('CSS', '#menu_button_container .bm-burger-button'),
         "all_items_sidebar": ('ID', 'inventory_sidebar_link'),
         "about_sidebar": ('ID', 'about_sidebar_link'),
         "logout_sidebar": ('ID', 'logout_sidebar_link'),
-        "sidebar_elements": ('CSS', '.bm-item-list a'),
-        "sidebars_elements": ('XPATH', '//nav/descendant::a'),
     }
 
     def logout_from_app(self):
@@ -27,3 +28,6 @@ class HeaderSection(PageFactory):
 
     def get_sidebars_elements(self) -> list:
         return self.driver.find_elements_by_xpath('//nav/descendant::a')
+
+    # def assert_visibility_of_elements(self):
+    #     return lambda el: assert

@@ -1,5 +1,7 @@
+from selenium.webdriver.remote.webelement import WebElement
 from seleniumpagefactory import PageFactory
 from selenium import webdriver
+from page_models.page_models_factory.pages.inventory_page.sections.model.card_model import InventoryCardModel
 
 
 class InventorySection(PageFactory):
@@ -8,9 +10,15 @@ class InventorySection(PageFactory):
         super().__init__()
         self.driver = driver
 
+    def get_card_item_elements(self) -> list[InventoryCardModel]:
+        items = self.driver.find_elements_by_css_selector('.inventory_item')
+        all_elements = []
 
-    locators = {
-        # "label": ('CSS', '#inventory_filter_container .product_label'),
-        "label": ('ID', 'inventory_container'),
+        for item in items:
+            add_card_element = item.find_element_by_css_selector('.btn_inventory')
+            image_element = item.find_element_by_css_selector('.inventory_item_img img')
+            price_element = item.find_element_by_css_selector('.pricebar')
+            item_model = InventoryCardModel(image_element, add_card_element, price_element)
+            all_elements.append(item_model)
 
-    }
+        return all_elements

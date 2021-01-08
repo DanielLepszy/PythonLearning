@@ -5,6 +5,7 @@ from page_models.page_models_factory.page_models_factory import PageModelsFactor
 from properties.read_properties import PropertiesReader
 
 
+
 class TestCaseBase:
     DRIVER = None
     PAGES = None

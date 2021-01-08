@@ -1,9 +1,11 @@
+from selenium.webdriver.remote.webdriver import WebDriver
+
 from page_models.page_models_factory.pages.inventory_page.inventory_page import InventoryPageModel
 from page_models.page_models_factory.pages.login_page.login_page import LoginPageModel
 
 
 class PageModelsFactory:
-    def __init__(self, driver) -> None:
+    def __init__(self, driver):
         super().__init__()
         self.driver = driver
 

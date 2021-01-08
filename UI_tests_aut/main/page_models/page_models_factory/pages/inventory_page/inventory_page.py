@@ -14,11 +14,6 @@ class InventoryPageModel:
         self.footer_section = None
         self.driver = driver
 
-    # locators = {
-    #     "product": ('ID', 'item_4_title_link'),
-    #
-    # }
-
     def get_page_url(self) -> str:
         return 'https://www.saucedemo.com/inventory.html'
 
