@@ -6,9 +6,8 @@ from page_models.page_models_factory.page_models_factory import PageModelsFactor
 from properties.read_properties import PropertiesReader
 
 
-
 class TestCaseBase:
-    DRIVER:WebDriver = None
+    DRIVER: WebDriver = None
     PAGES = None
 
     @classmethod
@@ -28,3 +27,4 @@ class TestCaseBase:
             return TestCaseBase.DRIVER
         else:
             return TestCaseBase.set_driver()
+

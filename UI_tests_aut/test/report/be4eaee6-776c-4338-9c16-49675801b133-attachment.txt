@@ -1,0 +1,1 @@
+[WDM] - Driver [C:\Users\Daniel_Lepszy\.wdm\drivers\geckodriver\win64\v0.28.0\geckodriver.exe] found in cache

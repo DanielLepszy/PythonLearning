@@ -6,7 +6,6 @@ from webdriver_manager.utils import ChromeType
 
 from browsers_model.chrome_browser import Chrome
 from browsers_model.firefox_browser import Firefox
-from test.listeners.listeners import Listeners
 
 
 class Browsers(Firefox, Chrome):
