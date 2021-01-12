@@ -1,1 +1,0 @@
-[32mINFO    [0m WDM:logger.py:24 Driver [C:\Users\Daniel_Lepszy\.wdm\drivers\geckodriver\win64\v0.28.0\geckodriver.exe] found in cache
