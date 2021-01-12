@@ -4,11 +4,13 @@ from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriv
 from browsers_model.browsers import Browsers
 from page_models.page_models_factory.page_models_factory import PageModelsFactory
 from properties.read_properties import PropertiesReader
+from test.base.actions import BrowserActions
 
 
 class TestCaseBase:
     DRIVER: WebDriver = None
     PAGES = None
+    ACTIONS: BrowserActions = None
 
     @classmethod
     def set_driver(cls) -> WebDriver:
@@ -28,3 +30,10 @@ class TestCaseBase:
         else:
             return TestCaseBase.set_driver()
 
+    @classmethod
+    def get_actions(cls) -> BrowserActions:
+        if TestCaseBase.ACTIONS is not None:
+           return TestCaseBase.ACTIONS
+        else:
+            TestCaseBase.ACTIONS = BrowserActions(TestCaseBase.DRIVER)
+            return TestCaseBase.ACTIONS

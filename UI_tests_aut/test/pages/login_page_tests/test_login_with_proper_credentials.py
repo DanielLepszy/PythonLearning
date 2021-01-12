@@ -2,7 +2,7 @@ import pytest
 from properties.read_properties import PropertiesReader
 from test.base.test_case_base import TestCaseBase
 
-@pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
+# @pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
 @pytest.mark.order(4)
 class TestLoginToAccount(TestCaseBase):
 
@@ -14,6 +14,6 @@ class TestLoginToAccount(TestCaseBase):
 
     def test_validation(self):
         self.page.set_credentials_to_inputs(self.username, self.password)
-        assert self.driver.current_url == 'https://www.saucedemo.com/inventory.htmls'
+        assert self.driver.current_url == 'https://www.saucedemo.com/inventory.html'
 
 

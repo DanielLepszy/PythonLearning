@@ -13,6 +13,7 @@ class HeaderSection(PageFactory):
 
     locators = {
         "shopping_trolley_icon": ('CSS', '#shopping_cart_container .fa-fw'),
+        "shopping_counter": ('CSS', '#shopping_cart_container .shopping_cart_badge'),
         "app_logo": ('CSS', '.app_logo'),
         "product_label": ('CSS', '#inventory_filter_container .product_label'),
         "menu_burger_button": ('CSS', '#menu_button_container .bm-burger-button'),
@@ -29,5 +30,7 @@ class HeaderSection(PageFactory):
     def get_sidebars_elements(self) -> list:
         return self.driver.find_elements_by_xpath('//nav/descendant::a')
 
-    # def assert_visibility_of_elements(self):
-    #     return lambda el: assert
+    def get_amount_of_selceted_items(self):
+        WaitFactory.wait_until_visibility_of_element(self.driver, self.shopping_counter)
+        # shopping_counter = self.driver.find_element_by_css_selector('#shopping_cart_container .shopping_cart_badge')
+        return int(self.shopping_counter.text)

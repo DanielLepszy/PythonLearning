@@ -1,12 +1,14 @@
-# import softest
-# from selenium.webdriver.remote.webelement import WebElement
-#
-#
-# class TestSoftAssertActions():
-#
-#     def test_visibility_of_elements(self, elements: list[WebElement]):
-#         # for el in elements:
-#         #     self.soft_assert(self.assertTrue(el.is_displayed()))
-#         # self.soft_assert(self.assertTrue(elements[0].is_displayed()))
-#         assert
-#         self.assert_all()
+from selenium.webdriver.android.webdriver import WebDriver
+from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.common.action_chains import ActionChains
+
+
+class BrowserActions():
+
+    def __init__(self, driver: WebDriver) -> None:
+        super().__init__()
+        self.driver = driver
+        self.actions = ActionChains(self.driver)
+
+    def scrollToElement(self, element: WebElement):
+        self.actions.move_to_element(element).perform()
