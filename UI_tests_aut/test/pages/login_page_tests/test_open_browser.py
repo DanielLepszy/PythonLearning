@@ -5,7 +5,7 @@ from properties.read_properties import PropertiesReader
 from test.base.test_case_base import TestCaseBase
 
 
-# @pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
+@pytest.mark.skipif(PropertiesReader.if_save_running_time() is False, reason="Ignore test to save time running")
 @pytest.mark.order(1)
 class TestClass(TestCaseBase):
 

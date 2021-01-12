@@ -1,11 +1,14 @@
 import pytest
 from delayed_assert import expect, delayed_assert
+from selenium.webdriver.common.by import By
 
 from properties.read_properties import PropertiesReader
 from test.base.test_case_base import TestCaseBase
+from wait_factory.explicit_wait_factory import WaitFactory
 
-@pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
-# @pytest.mark.order(5)
+
+@pytest.mark.skipif(PropertiesReader.if_save_running_time() is False, reason="Ignore test to save time running")
+@pytest.mark.order(6)
 class TestInventoryPageLayout(TestCaseBase):
 
     def setup_method(self):
@@ -19,18 +22,6 @@ class TestInventoryPageLayout(TestCaseBase):
     def test_footer_section(self):
         for el in self.page_footer.get_footer_elements(): expect(el.is_displayed())
 
-
-    @delayed_assert.assert_all()
-    def test_inventory_section(self):
-        card_models = self.page_inventory.get_card_item_elements()
-        if len(card_models) == 6:
-            for card in card_models:
-                expect(card.image.is_displayed())
-                expect(card.price.is_displayed())
-                expect(card.add_card.is_displayed())
-        else:
-            raise Exception
-
     @delayed_assert.assert_all()
     def test_header_section(self):
         '''Headers logo'''
@@ -43,3 +34,18 @@ class TestInventoryPageLayout(TestCaseBase):
         self.header_elements = self.page_header.get_sidebars_elements()
         expect(len(self.header_elements) is 4)
         for el in self.header_elements: expect(el.is_displayed())
+
+    @delayed_assert.assert_all()
+    def test_inventory_section(self):
+        self.page_header.cross_sidebar_button.click()
+        WaitFactory.wait_until_element_invisible(self.driver, By.CSS_SELECTOR, 'bm-menu')
+
+        card_models = self.page_inventory.get_card_item_elements()
+        if len(card_models) == 6:
+            for card in card_models:
+                expect(card.image.is_displayed())
+                expect(card.price.is_displayed())
+                expect(card.add_card.is_displayed())
+        else:
+            raise Exception
+

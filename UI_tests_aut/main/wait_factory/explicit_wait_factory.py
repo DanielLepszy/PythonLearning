@@ -19,10 +19,16 @@ class WaitFactory:
             EC.visibility_of_element_located((By.CSS_SELECTOR, locator))
         )
 
+    # @staticmethod
+    # def wait_until_element_invisible(driver, locator):
+    #     WebDriverWait(driver, WaitFactory.time).until(
+    #         EC.invisibility_of_element_located((By.CSS_SELECTOR, locator))
+    #     )
+
     @staticmethod
-    def wait_until_element_invisible(driver, locator):
+    def wait_until_element_invisible(driver, by: By, locator):
         WebDriverWait(driver, WaitFactory.time).until(
-            EC.invisibility_of_element_located((By.CSS_SELECTOR, locator))
+            EC.invisibility_of_element_located((by, locator))
         )
 
     @staticmethod
@@ -44,7 +50,7 @@ class WaitFactory:
         )
 
     @staticmethod
-    def wait_until_element_to_be_clickable(driver, locator):
+    def wait_until_element_to_be_clickable(driver, By: By, locator):
         WebDriverWait(driver, WaitFactory.time).until(
-            EC.element_to_be_clickable((By.XPATH, locator))
+            EC.element_to_be_clickable((By, locator))
         )
