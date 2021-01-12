@@ -23,9 +23,10 @@ class HeaderSection(PageFactory):
         "cross_sidebar_button": ('CSS', '.bm-cross-button button'),
     }
 
-    def logout_from_app(self):
-        WaitFactory.wait_until_element_presence(self.driver, '#menu_button_container .bm-burger-button')
-        self.driver.find_element_by_css_selector('#menu_button_container .bm-burger-button').click()
+    def logout_from_app(self):  
+        # WaitFactory.wait_until_element_presence(self.driver, '#menu_button_container .bm-burger-button')
+        # self.driver.find_element_by_css_selector('#menu_button_container .bm-burger-button').click()
+        self.menu_burger_button.click()
         WaitFactory.wait_until_visibility_of_element(self.driver, self.logout_sidebar)
         self.logout_sidebar.click()
 

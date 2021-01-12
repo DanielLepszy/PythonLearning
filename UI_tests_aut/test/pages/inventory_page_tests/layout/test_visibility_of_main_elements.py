@@ -18,12 +18,18 @@ class TestInventoryPageLayout(TestCaseBase):
         self.page_inventory = self.page.get_inventory_section()
         self.page_footer = self.page.get_footer_section()
 
+    @pytest.fixture()
+    def close_sidebar(self):
+        yield
+        self.page_header.cross_sidebar_button.click()
+        WaitFactory.wait_until_element_invisible(self.driver, By.CSS_SELECTOR, 'bm-menu')
+
     @delayed_assert.assert_all()
     def test_footer_section(self):
         for el in self.page_footer.get_footer_elements(): expect(el.is_displayed())
 
     @delayed_assert.assert_all()
-    def test_header_section(self):
+    def test_header_section(self, close_sidebar):
         '''Headers logo'''
         expect(self.page_header.shopping_trolley_icon.is_displayed())
         expect(self.page_header.app_logo.is_displayed())
@@ -37,8 +43,6 @@ class TestInventoryPageLayout(TestCaseBase):
 
     @delayed_assert.assert_all()
     def test_inventory_section(self):
-        self.page_header.cross_sidebar_button.click()
-        WaitFactory.wait_until_element_invisible(self.driver, By.CSS_SELECTOR, 'bm-menu')
 
         card_models = self.page_inventory.get_card_item_elements()
         if len(card_models) == 6:
@@ -48,4 +52,3 @@ class TestInventoryPageLayout(TestCaseBase):
                 expect(card.add_card.is_displayed())
         else:
             raise Exception
-
