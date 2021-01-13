@@ -4,8 +4,8 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.utils import ChromeType
 
-from browsers_model.chrome_browser import Chrome
-from browsers_model.firefox_browser import Firefox
+from UI_tests_aut.main.browsers_model.chrome_browser import Chrome
+from UI_tests_aut.main.browsers_model.firefox_browser import Firefox
 
 
 class Browsers(Firefox, Chrome):
@@ -14,9 +14,9 @@ class Browsers(Firefox, Chrome):
         super().__init__()
         self.driver = self.set_driver(browser_type)
 
-    def get_driver(self):
-        if self.driver is not None:
-            return self.driver
+    # def get_driver(self):
+    #     if self.driver is not None:
+    #         return self.driver
 
     def set_driver(self, browser_type) -> webdriver:
         if browser_type == Firefox().get_browser_type():

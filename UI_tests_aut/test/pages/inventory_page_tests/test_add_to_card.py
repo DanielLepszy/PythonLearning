@@ -1,11 +1,11 @@
 import pytest
+from UI_tests_aut.main.properties.read_properties import PropertiesReader
+from UI_tests_aut.test.base.test_case_base import TestCaseBase
 
-from properties.read_properties import PropertiesReader
-from test.base.test_case_base import TestCaseBase
 
-
-@pytest.mark.skipif(PropertiesReader.if_save_running_time() is False, reason="Ignore test to save time running")
+@pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
 @pytest.mark.order(5)
+@pytest.mark.functional
 class TestAddToCardAFewItems(TestCaseBase):
 
     def setup_method(self):

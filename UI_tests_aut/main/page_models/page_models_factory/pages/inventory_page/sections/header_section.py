@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from seleniumpagefactory import PageFactory
 from selenium import webdriver
 
-from wait_factory.explicit_wait_factory import WaitFactory
+from UI_tests_aut.main.wait_factory.explicit_wait_factory import WaitFactory
 
 
 class HeaderSection(PageFactory):

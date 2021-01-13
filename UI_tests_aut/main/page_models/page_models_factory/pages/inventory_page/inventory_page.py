@@ -1,9 +1,9 @@
 from seleniumpagefactory import PageFactory
 from selenium import webdriver
 
-from page_models.page_models_factory.pages.inventory_page.sections.footer_section import FooterSection
-from page_models.page_models_factory.pages.inventory_page.sections.header_section import HeaderSection
-from page_models.page_models_factory.pages.inventory_page.sections.inventory_section import InventorySection
+from UI_tests_aut.main.page_models.page_models_factory.pages.inventory_page.sections.footer_section import FooterSection
+from UI_tests_aut.main.page_models.page_models_factory.pages.inventory_page.sections.header_section import HeaderSection
+from UI_tests_aut.main.page_models.page_models_factory.pages.inventory_page.sections.inventory_section import InventorySection
 
 
 class InventoryPageModel:

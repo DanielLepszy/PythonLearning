@@ -1,10 +1,8 @@
-
-from selenium.webdriver.remote.webelement import WebElement
 from seleniumpagefactory import PageFactory
-from selenium import webdriver
-from page_models.page_models_factory.pages.inventory_page.sections.model.card_model import InventoryCardModel
-from wait_factory.explicit_wait_factory import WaitFactory
-from selenium.webdriver.common.action_chains import ActionChains
+
+from UI_tests_aut.main.page_models.page_models_factory.pages.inventory_page.sections.model.card_model import \
+    InventoryCardModel
+
 
 class InventorySection(PageFactory):
 
