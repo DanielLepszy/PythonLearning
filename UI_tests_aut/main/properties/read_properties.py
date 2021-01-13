@@ -13,15 +13,20 @@ class PropertiesReader:
             configs.load(config_file)
 
             return configs.get(key_property)
-    #
-    # @classmethod
-    # def get_value(cls, key_property):
-    #     prop = cls.load_properties_from_file(key_property)
-    #     if prop is None: raise Exception
-    #
-    #     return prop
-    #
-    # @classmethod
-    # def if_save_running_time(cls):
-    #     time_save = cls.get_value('saveTimeTestRunning').data
-    #     return bool(time_save)
+
+    @classmethod
+    def get_value(cls, key_property):
+        prop = cls.load_properties_from_file(key_property)
+        if prop is None: raise Exception
+
+        return prop
+
+    @classmethod
+    def if_save_running_time(cls):
+        time_save = cls.get_value('saveTimeTestRunning').data
+        if time_save == 'True':
+            return True
+        elif time_save == 'False':
+            return False
+        else:
+            raise Exception("Wrong 'saveTimeTestRunning' value. It should be True or False")
