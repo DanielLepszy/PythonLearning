@@ -10,6 +10,9 @@
 ### Download dependencies:
     $ pipenv install
 ### Run tests and set report:
-    $ pytest --alluredir=test/report
+ - #### **Functional test:**
+        $ pytest -v -s -m"functional" --alluredir=test/report
+ - #### **Layout test:**
+        $ pytest -v -s -m"layout" --alluredir=test/report
 ### Open allure tests report:
     $ allure serve test/report
