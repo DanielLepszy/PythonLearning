@@ -1,6 +1,7 @@
 import json
 from enum import Enum
 
+
 class UserType(Enum):
     STANDARD = "standard"
     LOCKED = "locked"
@@ -10,11 +11,11 @@ class UserType(Enum):
 
 
 class UserCredentialsReaderInterface:
-    __file_path__ = 'UI_tests_aut/test/data/login_page/credentials_data.json'
+    __file_path__ = '/credentials_data.json'
 
     @classmethod
-    def read_json_file(cls):
-        with open('data/file_for_test.json') as f:
+    def read_json_file(cls, path=__file_path__):
+        with open(path) as f:
             json_file = json.load(f)
         return json_file
 
@@ -32,21 +33,21 @@ class UserCredentialsReaderInterface:
             return data['wrong']
 
     @classmethod
-    def select_user_credentials(cls, user_type: UserType):
-        json_file = cls.read_json_file()
+    def select_user_credentials(cls, user_type: UserType, file_path=__file_path__):
+        json_file = cls.read_json_file(path=file_path)
         user_type_node = json_file['credentials']['user_type']
         credentials_node = cls.select_user_type_node(user_type, user_type_node)
 
         return credentials_node
 
     @classmethod
-    def get_username(cls, user_type: UserType) -> str:
-        credentials = cls.select_user_credentials(user_type)
+    def get_username(cls, user_type: UserType, file_path=__file_path__) -> str:
+        credentials = cls.select_user_credentials(user_type, file_path=file_path)
 
         return credentials.get('username')
 
     @classmethod
-    def get_password(cls, user_type: UserType) -> str:
-        credentials = cls.select_user_credentials(user_type)
+    def get_password(cls, user_type: UserType, file_path=__file_path__) -> str:
+        credentials = cls.select_user_credentials(user_type, file_path=file_path)
 
         return credentials.get('password')

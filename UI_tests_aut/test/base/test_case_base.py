@@ -3,7 +3,7 @@ from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriv
 
 from UI_tests_aut.main.browsers_model.browsers import Browsers
 from UI_tests_aut.main.page_models.page_models_factory.page_models_factory import PageModelsFactory
-from UI_tests_aut.main.read_data.read_properties import PropertiesReader
+from UI_tests_aut.main.read_data.properties.read_properties import PropertiesReader
 from UI_tests_aut.test.base.actions import BrowserActions
 
 

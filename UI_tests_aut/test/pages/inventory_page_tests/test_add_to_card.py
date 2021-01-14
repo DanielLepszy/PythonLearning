@@ -1,5 +1,5 @@
 import pytest
-from UI_tests_aut.main.read_data.read_properties import PropertiesReader
+from UI_tests_aut.main.read_data.properties.read_properties import PropertiesReader
 from UI_tests_aut.test.base.test_case_base import TestCaseBase
 
 

@@ -1,7 +1,7 @@
 import pytest
 from jproperties import Properties
 
-from UI_tests_aut.main.read_data.read_properties import PropertiesReader
+from UI_tests_aut.main.read_data.properties.read_properties import PropertiesReader
 
 
 @pytest.mark.unittest

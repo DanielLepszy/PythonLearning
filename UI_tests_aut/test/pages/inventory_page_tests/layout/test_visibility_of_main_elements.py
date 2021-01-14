@@ -3,7 +3,7 @@ from delayed_assert import expect, delayed_assert
 from selenium.webdriver.common.by import By
 from UI_tests_aut.main.wait_factory.explicit_wait_factory import WaitFactory
 from UI_tests_aut.test.base.test_case_base import TestCaseBase
-from UI_tests_aut.main.read_data.read_properties import PropertiesReader
+from UI_tests_aut.main.read_data.properties.read_properties import PropertiesReader
 
 
 @pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
