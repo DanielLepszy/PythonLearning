@@ -5,13 +5,18 @@ from enum import Enum
 class UserType(Enum):
     STANDARD = "standard"
     LOCKED = "locked"
+    NONEXISTENT = "nonexistent"
     PROBLEMATIC = "problematic"
     PERFORMANCE = "performance"
-    WRONG = "wrong"
+
+    @classmethod
+    def users_able_to_log_in(cls):
+        users = list(map(lambda c: c.value, cls))
+        return users.remove(cls.NONEXISTENT.value)
 
 
 class UserCredentialsReaderInterface:
-    __file_path__ = '/credentials_data.json'
+    __file_path__ = 'C:/Users/Daniel_Lepszy/Tools/PythonLearningProject/PythonLearnCode/UI_tests_aut/main/read_data/json_data/login_page/credentials_data.json'
 
     @classmethod
     def read_json_file(cls, path=__file_path__):
@@ -33,6 +38,13 @@ class UserCredentialsReaderInterface:
             return data['wrong']
 
     @classmethod
+    def get_user_type_node(cls, file_path=__file_path__):
+        json_file = cls.read_json_file(path=file_path)
+        user_type_node = json_file['credentials']['user_type']
+
+        return user_type_node
+
+    @classmethod
     def select_user_credentials(cls, user_type: UserType, file_path=__file_path__):
         json_file = cls.read_json_file(path=file_path)
         user_type_node = json_file['credentials']['user_type']
@@ -51,3 +63,16 @@ class UserCredentialsReaderInterface:
         credentials = cls.select_user_credentials(user_type, file_path=file_path)
 
         return credentials.get('password')
+
+    @classmethod
+    def get_only_proper_users_credentials(cls, file_path=__file_path__):
+        user_type_node = cls.get_user_type_node(file_path=file_path)
+        users: list = list(map(lambda c: c, UserType))
+        users.remove(UserType.NONEXISTENT)
+
+        users_credentials = {}
+        for user in users:
+        #TODO Send tuple (username - password) or dict of credentials to test login to app by all user
+        users_credentials.update()
+
+        return users

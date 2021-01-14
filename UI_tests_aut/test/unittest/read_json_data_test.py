@@ -36,3 +36,8 @@ class TestJSONReaderInterface:
         password_value = UserCredentialsReaderInterface.get_password(UserType.LOCKED, file_path=self.__file_path__)
 
         assert password_value == 'secret_sauce'
+
+    def test_get_users_able_to_log_in(self):
+        users = UserCredentialsReaderInterface.get_only_proper_users_credentials(file_path=self.__file_path__)
+
+        assert len(users) == 4
