@@ -5,7 +5,6 @@
 2. **UI_test_aut** - user interface test automation ( functional nad layout tests )
 
 
-<br>
 
 ### Download dependencies:
     $ pipenv install

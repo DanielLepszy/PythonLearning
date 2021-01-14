@@ -6,7 +6,7 @@ class PropertiesReader:
     @classmethod
     def load_properties_from_file(cls, key_property):
         configs = Properties()
-        # with open('../test_config.properties', 'rb') as config_file:
+        # with open('../test_config.read_data', 'rb') as config_file:
         with open(
                 "C:/Users/Daniel_Lepszy/Tools/PythonLearningProject/PythonLearnCode/UI_tests_aut/test_config.properties",
                 'rb') as config_file:
