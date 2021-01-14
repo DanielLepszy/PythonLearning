@@ -1,0 +1,26 @@
+{
+  "credentials": {
+      "user_type": {
+        "standard": {
+          "username": "standard_user",
+          "password": "secret_sauce"
+        },
+        "locked": {
+          "username": "locked_out_user",
+          "password": "secret_sauce"
+        },
+        "problematic": {
+          "username": "problem_user",
+          "password": "secret_sauce"
+        },
+        "performance": {
+          "username": "performance_glitch_user",
+          "password": "secret_sauce"
+        },
+        "wrong": {
+          "username": "performance_glitch_user",
+          "password": "secret_sauce"
+        }
+      }
+    }
+  }

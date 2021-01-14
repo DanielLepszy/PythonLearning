@@ -3,6 +3,7 @@ from jproperties import Properties
 
 from UI_tests_aut.main.read_data.read_properties import PropertiesReader
 
+
 @pytest.mark.unittest
 class TestPropertyReaderInterface:
 
@@ -45,7 +46,7 @@ class TestPropertyReaderInterface:
         reader = PropertiesReader()
         value = reader.if_save_running_time()
 
-        assert value is True | False
+        assert isinstance(value, bool)
 
     def test_username_values(self):
         prop = 'username'
