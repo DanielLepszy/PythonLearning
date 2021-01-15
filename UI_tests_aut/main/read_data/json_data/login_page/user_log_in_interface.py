@@ -2,7 +2,6 @@ import json
 from enum import Enum
 
 
-
 class UserType(Enum):
     STANDARD = "standard"
     LOCKED = "locked"
@@ -17,7 +16,7 @@ class UserType(Enum):
 
 
 class UserLogInReaderInterface:
-    __file_path__ = '/read_data/json_data/login_page/log_in_data.json'
+    __file_path__ = 'C:/Users/Daniel_Lepszy/Tools/PythonLearningProject/PythonLearnCode/UI_tests_aut/main/read_data/json_data/login_page/log_in_data.json'
 
     @classmethod
     def read_json_file(cls, path=__file_path__):
@@ -83,3 +82,20 @@ class UserLogInReaderInterface:
             users_credentials.append((username, password))
 
         return users_credentials
+
+    @classmethod
+    def get_user_with_no_access(cls, file_path=__file_path__):
+        """
+            Takes users which are not able to log in to app
+        """
+        user_type_node: dict = cls.get_user_type_node(file_path=file_path)
+        users: list = list(map(lambda c: c.value, UserType))
+        users.remove(UserType.PERFORMANCE.value)
+        users.remove(UserType.STANDARD.value)
+        users.remove(UserType.PROBLEMATIC.value)
+
+        users_with_no_access = []
+        for user in users:
+            users_with_no_access.append(user_type_node[user])
+
+        return users_with_no_access

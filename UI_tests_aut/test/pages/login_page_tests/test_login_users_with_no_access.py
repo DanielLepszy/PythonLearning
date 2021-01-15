@@ -1,13 +1,13 @@
 import pytest
 from UI_tests_aut.main.read_data.properties.read_properties import PropertiesReader
 from UI_tests_aut.test.base.test_case_base import TestCaseBase
-from read_data.json_data.login_page.json_reader import UserCredentialsReaderInterface
+from UI_tests_aut.main.read_data.json_data.login_page.user_log_in_interface import UserLogInReaderInterface
 
 
-# @pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
-@pytest.mark.functional
+@pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
+@pytest.mark.data_driven_approach
 class TestLoginToAppByAllUsersType(TestCaseBase):
-    users_with_no_access = UserCredentialsReaderInterface.get_user_with_no_access()
+    users_with_no_access = UserLogInReaderInterface.get_user_with_no_access()
 
     def setup_method(self):
         self.driver = TestCaseBase.get_driver()

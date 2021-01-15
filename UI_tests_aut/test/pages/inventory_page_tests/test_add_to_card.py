@@ -4,7 +4,7 @@ from UI_tests_aut.test.base.test_case_base import TestCaseBase
 
 
 @pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
-@pytest.mark.order(5)
+@pytest.mark.order(3)
 @pytest.mark.functional
 class TestAddToCardAFewItems(TestCaseBase):
 

@@ -9,11 +9,11 @@
         "username": "locked_out_user",
         "password": "secret_sauce",
         "validation_error_messages": {
-          "message": "Epic sadface: Username is required"
+          "message": "Epic sadface: Sorry, this user has been locked out."
         }
       },
       "problematic": {
-        "username": "problem_user",git 
+        "username": "problem_user",
         "password": "secret_sauce"
       },
       "performance": {
@@ -24,7 +24,7 @@
         "username": "nonexistent_username",
         "password": "nonexistent_password",
         "validation_error_messages": {
-          "message": "Epic sadface: Username is required"
+          "message": "Epic sadface: Username and password do not match any user in this service"
         }
       },
       "lack": {
