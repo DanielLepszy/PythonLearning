@@ -4,7 +4,7 @@ import json
 from UI_tests_aut.main.read_data.json_data.login_page.user_log_in_interface import UserLogInReaderInterface, UserType
 
 
-@pytest.mark.unittestJSON
+@pytest.mark.unittest
 class TestJSONReaderInterface:
     __file_path__ = 'C:/Users/Daniel_Lepszy/Tools/PythonLearningProject/PythonLearnCode/UI_tests_aut/test/unittest/data/credentails_backup_data.json'
 
@@ -40,9 +40,9 @@ class TestJSONReaderInterface:
     def test_get_users_able_to_log_in(self):
         users = UserLogInReaderInterface.get_only_proper_users_credentials(file_path=self.__file_path__)
 
-        assert len(users) == 4
+        assert len(users) == 3
 
     def test_get_user_with_no_access(self):
         users = UserLogInReaderInterface.get_user_with_no_access(file_path=self.__file_path__)
 
-        assert len(users) == 3
+        assert len(users) == 2

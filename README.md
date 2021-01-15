@@ -11,6 +11,8 @@
 <br>
 
 ### Run tests from root repo and set report :
+- #### Unit tests (TDD) : 
+        $ pytest -v -s -m"unittest"
  - #### **Functional test :**
         $ pytest -v -s -m"functional"
  - #### **Layout test :**
