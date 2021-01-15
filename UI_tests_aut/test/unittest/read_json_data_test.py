@@ -41,3 +41,8 @@ class TestJSONReaderInterface:
         users = UserCredentialsReaderInterface.get_only_proper_users_credentials(file_path=self.__file_path__)
 
         assert len(users) == 4
+
+    def test_get_user_with_no_access(self):
+        users = UserCredentialsReaderInterface.get_user_with_no_access(file_path=self.__file_path__)
+
+        assert len(users) == 3

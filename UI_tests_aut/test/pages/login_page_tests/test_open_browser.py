@@ -5,7 +5,7 @@ from UI_tests_aut.main.read_data.properties.read_properties import PropertiesRea
 from UI_tests_aut.test.base.test_case_base import TestCaseBase
 
 
-# @pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
+@pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
 @pytest.mark.order(1)
 @pytest.mark.functional
 class TestBrowserSession(TestCaseBase):

@@ -2,21 +2,21 @@ import json
 from enum import Enum
 
 
+
 class UserType(Enum):
     STANDARD = "standard"
     LOCKED = "locked"
     NONEXISTENT = "nonexistent"
     PROBLEMATIC = "problematic"
     PERFORMANCE = "performance"
-    LACK = "lack"
 
-    # @classmethod
-    # def users_able_to_log_in(cls):
-    #     users = list(map(lambda c: c.value, cls))
-    #     return users.remove(cls.NONEXISTENT.value)
+    @classmethod
+    def users_able_to_log_in(cls):
+        users = list(map(lambda c: c.value, cls))
+        return users.remove(cls.NONEXISTENT.value)
 
 
-class UserCredentialsReaderInterface():
+class UserLogInReaderInterface:
     __file_path__ = '/read_data/json_data/login_page/log_in_data.json'
 
     @classmethod
@@ -83,20 +83,3 @@ class UserCredentialsReaderInterface():
             users_credentials.append((username, password))
 
         return users_credentials
-
-    @classmethod
-    def get_user_with_no_access(cls, file_path=__file_path__):
-        """
-            Takes users which are not able to log in to app
-        """
-        user_type_node: dict = cls.get_user_type_node(file_path=file_path)
-        users: list = list(map(lambda c: c.value, UserType))
-        users.remove(UserType.PERFORMANCE.value)
-        users.remove(UserType.STANDARD.value)
-        users.remove(UserType.PROBLEMATIC.value)
-
-        users_with_no_access = []
-        for user in users:
-            users_with_no_access.append(user_type_node[user])
-
-        return users_with_no_access
