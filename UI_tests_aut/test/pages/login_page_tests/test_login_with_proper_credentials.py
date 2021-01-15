@@ -1,6 +1,8 @@
 import pytest
 from UI_tests_aut.main.read_data.properties.read_properties import PropertiesReader
 from UI_tests_aut.test.base.test_case_base import TestCaseBase
+from read_data.json_data.login_page.json_reader import UserCredentialsReaderInterface
+
 
 @pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
 @pytest.mark.order(4)
@@ -16,5 +18,3 @@ class TestLoginToAccount(TestCaseBase):
     def test_validation(self):
         self.page.set_credentials_to_inputs(self.username, self.password)
         assert self.driver.current_url == 'https://www.saucedemo.com/inventory.html'
-
-

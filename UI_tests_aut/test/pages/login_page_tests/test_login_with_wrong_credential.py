@@ -5,7 +5,7 @@ from UI_tests_aut.test.base.test_case_base import TestCaseBase
 from UI_tests_aut.main.read_data.json_data.login_page.json_reader import UserCredentialsReaderInterface, UserType
 
 
-# @pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
+@pytest.mark.skipif(PropertiesReader.if_save_running_time(), reason="Ignore test to save time running")
 @pytest.mark.order(3)
 @pytest.mark.functional
 class TestLoginWithWrongCredential(TestCaseBase):

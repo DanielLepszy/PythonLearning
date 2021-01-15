@@ -38,7 +38,7 @@ class UserCredentialsReaderInterface:
             return data['wrong']
 
     @classmethod
-    def get_user_type_node(cls, file_path=__file_path__):
+    def get_user_type_node(cls, file_path=__file_path__) -> dict:
         json_file = cls.read_json_file(path=file_path)
         user_type_node = json_file['credentials']['user_type']
 
@@ -66,13 +66,15 @@ class UserCredentialsReaderInterface:
 
     @classmethod
     def get_only_proper_users_credentials(cls, file_path=__file_path__):
-        user_type_node = cls.get_user_type_node(file_path=file_path)
-        users: list = list(map(lambda c: c, UserType))
-        users.remove(UserType.NONEXISTENT)
+        user_type_node: dict = cls.get_user_type_node(file_path=file_path)
+        users: list = list(map(lambda c: c.value, UserType))
+        users.remove(UserType.NONEXISTENT.value)
 
-        users_credentials = {}
+        users_credentials = []
         for user in users:
-        #TODO Send tuple (username - password) or dict of credentials to test login to app by all user
-        users_credentials.update()
+            user_credential = user_type_node[user]
+            username = user_credential.get('username')
+            password = user_credential.get('password')
+            users_credentials.append((username, password))
 
-        return users
+        return users_credentials
