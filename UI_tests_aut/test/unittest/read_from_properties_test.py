@@ -21,7 +21,7 @@ class TestPropertyReaderInterface:
         configs = Properties(self)
         with pytest.raises(FileNotFoundError):
             with open(
-                    "Wrong_File_Path",
+                    "Wrong_File_Pathh",
                     'rb') as config_file:
                 configs.load(config_file)
 
