@@ -1,8 +1,19 @@
+from enum import Enum
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.select import Select
 from seleniumpagefactory import PageFactory
 from selenium import webdriver
 
 from UI_tests_aut.main.wait_factory.explicit_wait_factory import WaitFactory
+
+
+class FilterValue(Enum):
+    NAME_ASC = 1
+    NAME_DESC = 1
+    PRICE_ASC = 1
+    PRICE_DESC = 1
 
 
 class HeaderSection(PageFactory):
@@ -21,6 +32,7 @@ class HeaderSection(PageFactory):
         "about_sidebar": ('ID', 'about_sidebar_link'),
         "logout_sidebar": ('ID', 'logout_sidebar_link'),
         "cross_sidebar_button": ('CSS', '.bm-cross-button button'),
+        "filter_select": ('CSS', '#inventory_filter_container select'),
     }
 
     def logout_from_app(self):
@@ -36,4 +48,10 @@ class HeaderSection(PageFactory):
     def get_amount_of_selceted_items(self):
         WaitFactory.wait_until_visibility_of_element(self.driver, self.shopping_counter)
         # shopping_counter = self.driver.find_element_by_css_selector('#shopping_cart_container .shopping_cart_badge')
+        return int(self.shopping_counter.text)
+
+    def select_filter(self, value: str):
+        WaitFactory.wait_until_visibility_of_element(self.driver, self.filter_select)
+        select = Select(self.filter_select)
+        select.select_by_value()
         return int(self.shopping_counter.text)

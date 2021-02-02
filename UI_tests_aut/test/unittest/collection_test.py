@@ -173,4 +173,17 @@ class TestCollectionInPython:
         for x in my_dictionary.values():
             print(x)
 
+    def test_sets_collection(self):
 
+        my_set = {'name', 'surname', 'xx'}
+        tropical = {"pineapple", "mango", "papaya", 'xx'}
+        print(type(my_set))
+        my_set.add('zz')
+        print(my_set)
+        my_set.update(tropical)
+        print(my_set)
+        my_set.remove("xx")
+        my_set.discard("zxc")
+        print(my_set)
+        x = my_set.intersection(tropical)
+        print(x)
