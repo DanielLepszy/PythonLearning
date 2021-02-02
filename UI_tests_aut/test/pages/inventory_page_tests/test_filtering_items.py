@@ -30,10 +30,10 @@ class TestAddToCardAFewItems(TestCaseBase):
 
     def test_filtering_items_name_desc(self):
         sorted_names = self.page_header.filtering_descending_items_name(self.names)
-        self.page_header.select_filter(FilterValueEnum.PRICE_ASC.value)
+        self.page_header.select_filter(FilterValueEnum.NAME_DESC.value)
 
         sorted_items = self.page_inventory.get_card_item_elements()
-        sorted_names_in_page = tuple([float(x.price.text[1:]) for x in sorted_items])
+        sorted_names_in_page = tuple([x.name.text for x in sorted_items])
 
         assert sorted_names == sorted_names_in_page
 
