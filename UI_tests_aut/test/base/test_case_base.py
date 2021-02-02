@@ -8,7 +8,7 @@ from UI_tests_aut.test.base.actions import BrowserActions
 
 
 class TestCaseBase:
-    DRIVER:WebDriver = None
+    DRIVER: WebDriver = None
     PAGES = None
     ACTIONS: BrowserActions = None
 
@@ -33,7 +33,7 @@ class TestCaseBase:
     @classmethod
     def get_actions(cls) -> BrowserActions:
         if TestCaseBase.ACTIONS is not None:
-           return TestCaseBase.ACTIONS
+            return TestCaseBase.ACTIONS
         else:
             TestCaseBase.ACTIONS = BrowserActions(TestCaseBase.DRIVER)
             return TestCaseBase.ACTIONS

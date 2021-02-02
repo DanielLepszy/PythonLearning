@@ -1,22 +1,20 @@
 from enum import Enum
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.select import Select
 from seleniumpagefactory import PageFactory
-from selenium import webdriver
 
 from UI_tests_aut.main.wait_factory.explicit_wait_factory import WaitFactory
+from UI_tests_aut.main.page_models.page_models_factory.pages.inventory_page.sections.interfaces.filtering_data import FilteringMethod
 
 
-class FilterValue(Enum):
-    NAME_ASC = 1
-    NAME_DESC = 1
-    PRICE_ASC = 1
-    PRICE_DESC = 1
+class FilterValueEnum(Enum):
+    NAME_ASC = "Name (A to Z)"
+    NAME_DESC = "Name (Z to A)"
+    PRICE_ASC = "Price (low to high)"
+    PRICE_DESC = "Price (high to low)"
 
 
-class HeaderSection(PageFactory):
+class HeaderSection(PageFactory, FilteringMethod):
 
     def __init__(self, driver):
         super().__init__()
@@ -50,8 +48,7 @@ class HeaderSection(PageFactory):
         # shopping_counter = self.driver.find_element_by_css_selector('#shopping_cart_container .shopping_cart_badge')
         return int(self.shopping_counter.text)
 
-    def select_filter(self, value: str):
+    def select_filter(self, value: FilterValueEnum):
         WaitFactory.wait_until_visibility_of_element(self.driver, self.filter_select)
         select = Select(self.filter_select)
-        select.select_by_value()
-        return int(self.shopping_counter.text)
+        select.select_by_visible_text(value)
