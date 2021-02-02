@@ -1,6 +1,6 @@
+from collections import namedtuple
 import pytest
 from pytest import approx
-from selenium.webdriver.remote.webelement import WebElement
 
 
 @pytest.mark.collectionsTest
@@ -25,10 +25,10 @@ class TestCollectionInPython:
         global global_variable
         global_variable = "global variable"
 
-        assert global_variable is "global variable"
+        assert global_variable == "global variable"
 
     def test_global_variable_access(self):
-        assert global_variable is "global variable"
+        assert global_variable == "global variable"
 
     def test_deleted_global_variable_access(self):
         assert 'global_variable' in globals()
@@ -137,4 +137,40 @@ class TestCollectionInPython:
         print(y_list)
         print(x_list)
         print(z_list)
+
+    def test_name_tuples(self):
+        Fruit = namedtuple('Fruit', ['name', 'price'])
+        fruit_class = Fruit('orange', 11)
+
+        print(fruit_class.price)
+        print(fruit_class._fields)
+
+    def test_dict_collection(self):
+        my_dictionary = {
+            'name': 'Full Name',
+            'age': 16,
+            'ifAdult': False
+        }
+        tuple = my_dictionary.items()
+        print(my_dictionary.values())
+        print(my_dictionary.keys())
+        print(my_dictionary['name'])
+        print(my_dictionary.get('name'))
+        for x in tuple:
+            print(f'Key is {x[0]}. Value is : {x[1]}')
+
+        my_dictionary.update({'name': 'Surname'})
+        print(my_dictionary)
+        my_dictionary.update({'color': 'white'})
+        print(my_dictionary)
+        my_dictionary.pop('color')
+        print(my_dictionary)
+        my_dictionary.popitem()
+        print(my_dictionary)
+        for x in my_dictionary:
+            print(x, my_dictionary[x])
+
+        for x in my_dictionary.values():
+            print(x)
+
 
